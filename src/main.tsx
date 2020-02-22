@@ -1,6 +1,7 @@
 import app from 'apprun';
-
-app.on('#', _ => app.run('#Home'))
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
 
 app.on('//', route => {
   const menus = document.querySelectorAll('.navbar-nav li');
@@ -9,7 +10,7 @@ app.on('//', route => {
   item && item.parentElement.classList.add('active');
 })
 
-const view = state => <div>
+const App = () => <>
   <nav className="navbar navbar-default">
     <div className="container">
       <div className="navbar-header">
@@ -32,13 +33,9 @@ const view = state => <div>
     </div>
   </nav>
   <div className="container" id="my-app"></div>
-</div>
+</>
 
-app.start('main', {}, view, {})
-
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
+app.render(document.body, <App />);
 
 const element = 'my-app';
 new Home().mount(element);

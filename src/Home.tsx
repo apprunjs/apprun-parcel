@@ -10,7 +10,7 @@ export default class HomeComponent extends Component {
   }
 
   update = {
-    '#Home': state => state,
+    '#, #Home': state => state,
   }
 }
 
